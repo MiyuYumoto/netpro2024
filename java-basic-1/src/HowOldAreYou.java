@@ -14,13 +14,48 @@ public class HowOldAreYou {
 			// readLine() は、入出力エラーの可能性がある。エラー処理がないとコンパイルできない。
 			//  Java では、 try{ XXXXXXXX }  catch(エラーの型 変数) { XXXXXXXXXXXXXXXXXX} と書く
 		try {
+			while(true){
 			System.out.println("何歳ですか?");
 			String line = reader.readLine();
+			if (line.equalsIgnoreCase("q") || line.equalsIgnoreCase("e")) {
+				System.out.println("プログラムを終了します。");//入力がqあるいはeの場合は終了
+				break;
+			}
 			int age = Integer.parseInt(line);
-			System.out.println("あなたは" + age + "歳ですね。");
-			System.out.println("あなたは10年後、" + (age + 10) + "歳ですね。");
-		}
-		catch(IOException e) {
+
+			if (age < 0 || age >= 120) {
+				System.out.println("年齢が不正です。再入力してください。");
+				continue;
+			}
+
+			int birthYear = 2024 - age;
+			int age2030 = age + 6;
+
+			String era;
+			int yearInEra;
+
+			if (birthYear >= 2019) {
+				era = "令和";
+				yearInEra = birthYear - 2018;
+			} else if (birthYear >= 1989) {
+				era = "平成";
+				yearInEra = birthYear - 1988;
+			} else if (birthYear >= 1926) {
+				era = "昭和";
+				yearInEra = birthYear - 1925;
+			} else if (birthYear >= 1912) {
+				era = "大正";
+				yearInEra = birthYear - 1911;
+			} else {
+				era = "明治";
+				yearInEra = birthYear - 1867;
+			}
+
+			System.out.println("2030年には" + age2030  + "歳です。");
+                System.out.println("誕生年は" + era + yearInEra + "年です。");
+            }
+
+		}catch(IOException e) {
 			System.out.println(e);
 		}
 

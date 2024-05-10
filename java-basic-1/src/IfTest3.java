@@ -7,10 +7,10 @@ public class IfTest3 {
 	public static void main(String[] args) {
 		int x=Integer.parseInt(args[0]);
 		/*以下を改造する。**/
-        if(x=10||x<=0){
-            System.out.println(x+" is out of scope");
-            System.exit(status:1);
-        }
+        //if(x=10||x<=0){
+        //    System.out.println(x+" is out of scope");
+        //    System.exit(status:1);
+        //}
         if(x>=7){
             System.out.println(x+"is Big Number");
         }else if(x>=4){
